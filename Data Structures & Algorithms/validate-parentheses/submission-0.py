@@ -1,0 +1,11 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack= []
+        for i in s:
+            if i in ['(','{','[']:
+                stack.append(i)
+            else:
+                last = stack[-1]
+                if last == '(' and i == ')' or last == '[' and i ==']' or last == '{' and i == '}':
+                    stack.pop()
+        return len(stack) == 0
